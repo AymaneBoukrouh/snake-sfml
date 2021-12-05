@@ -3,11 +3,6 @@
 #include <SFML/Graphics.hpp>
 
 
-using std::pair;
-using std::vector;
-using std::string;
-
-
 int main()
 {
 	srand(time(NULL));
