@@ -1,6 +1,7 @@
 #pragma once
 
 
+#include "Config.h"
 #include "Snake.h"
 #include <SFML/Graphics.hpp>
 
