@@ -1,7 +1,7 @@
-#include "Config.h"
-#include "Block.h"
-#include "Snake.h"
-#include "MainWindow.h"
+#include "includes/Config.h"
+#include "includes/Block.h"
+#include "includes/Snake.h"
+#include "includes/MainWindow.h"
 #include <SFML/Graphics.hpp>
 
 
