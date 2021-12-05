@@ -9,7 +9,7 @@
 > Note: SFML needs to be installed in order to run this command
 
 ```bash
-$ g++ main.cpp -o main -lsfml-graphics -lsfml-window -lsfml-system
+$ g++ *.cpp -o main -lsfml-graphics -lsfml-window -lsfml-system && ./main
 ```
 
 ### How To Play
