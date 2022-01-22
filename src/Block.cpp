@@ -1,19 +1,19 @@
-#include "../includes/Config.h"
-#include "../includes/Block.h"
 #include <SFML/Graphics.hpp>
+#include "../includes/Block.h"
+#include "../includes/Config.h"
 
 
-using std::pair;
-
-
-Block::Block (pair<int, int> pos, sf::Color color) {
-	this->move({pos.first, pos.second});
+Block::Block (std::pair<int, int> pos, sf::Color color) {
+	this->setPos({pos.first, pos.second});
 	this->setSize(sf::Vector2f(BS, BS));
 	this->setFillColor(color);
 }
 
+std::pair<int, int> Block::getPos () {
+	return this->pos;
+}
 
-void Block::move (pair<int, int> pos) {
+void Block::setPos (std::pair<int, int> pos) {
 	this->pos = pos;
 
 	int x = pos.first * (BS + GSS);

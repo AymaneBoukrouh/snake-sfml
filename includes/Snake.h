@@ -1,32 +1,41 @@
 #pragma once
 
-
+#include <SFML/Graphics.hpp>
+#include <vector>
+#include <string>
 #include "Block.h"
-
-
-using std::pair;
-using std::vector;
-using std::string;
 
 
 class Snake {
 public:
+	std::string direction;
+	std::vector<Block*> blocks;
+	sf::Thread *mouvement_thread;
 	Block *bait;
-	vector<Block> blocks;
-	string direction = "right";
-	bool is_moving = false;
-	bool is_dead = false;
+
+public:
+	bool is_moving, is_dead;
 
 	Snake ();
+	void init ();
+	void reset ();
+	void draw (sf::RenderWindow *parent);
+
+	// Mouvement
+	void change_direction (std::string direction);
 	void move ();
 	void start_mouvement ();
-	void change_direction (string direction);
-	pair<int, int> generate_rand_pos ();
+	void stop_mouvement ();
+	void loop_mouvement ();
+
+	// Game
 	void generate_bait ();
 	void check_bait ();
 	void check_game_over ();
-	void reset ();
-	bool exists (pair<int, int> b, vector<Block> blocks);
-	Block *head ();
-	Block *tail ();
+
+	// Helpers
+	bool is_empty_cell (std::pair<int, int> b);
+	std::pair<int, int> generate_rand_pos ();
+	Block* head ();
+	Block* tail ();
 };

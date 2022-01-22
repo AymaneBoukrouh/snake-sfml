@@ -1,22 +1,16 @@
 #pragma once
 
-
-#include "Config.h"
-#include "Snake.h"
 #include <SFML/Graphics.hpp>
+#include "Snake.h"
+#include "Config.h"
 
 
 class MainWindow: public sf::RenderWindow {
 private:
-	int
-		WIDTH = (BS+GSS) * (GXS-1),
-		HEIGHT = (BS+GSS) * (GYS-1);
-
-	Snake snake;
-	sf::Thread *snake_mouvement;
+	int width, height;
+	Snake *snake;
 
 public:
 	MainWindow ();
 	void run ();
-	void main_loop ();
 };
