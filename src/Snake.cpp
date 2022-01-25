@@ -120,7 +120,9 @@ void Snake::check_game_over () {
 // *** Helpers *** //
 
 bool Snake::is_empty_cell (std::pair<int, int> b) {
-	for (int i=0; i<this->blocks.size(); i++) if (b == this->blocks[i]->getPos()) return false;
+	for (int i=0; i<this->blocks.size(); i++)
+		if (b == this->blocks[i]->getPos())
+			return false;
 	return true;
 }
 
