@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "../includes/MainWindow.h"
-#include "../includes/Snake.h"
-#include "../includes/Config.h"
+#include "MainWindow.h"
+#include "Snake.h"
+#include "Config.h"
 
 
 MainWindow::MainWindow () {

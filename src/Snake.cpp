@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "../includes/Snake.h"
-#include "../includes/Block.h"
-#include "../includes/Config.h"
+#include "Snake.h"
+#include "Block.h"
+#include "Config.h"
 
 
 Snake::Snake () {
@@ -38,10 +38,10 @@ void Snake::draw (sf::RenderWindow *parent) {
 
 void Snake::change_direction (std::string direction) {
 	if (
-		this->direction == "right" && direction != "left" ||
-		this->direction == "left" && direction != "right" ||
-		this->direction == "up" && direction != "down" ||
-		this->direction == "down" && direction != "up"
+		((this->direction == "right") && (direction != "left")) ||
+		((this->direction == "left") && (direction != "right")) ||
+		((this->direction == "up") && (direction != "down")) ||
+		((this->direction == "down") && (direction != "up"))
 	) this->direction = direction;
 }
 
@@ -95,7 +95,7 @@ void Snake::generate_bait () {
 void Snake::check_bait () {
 	std::pair<int, int> tail_pos = this->tail()->getPos();
 
-	for (int i=0; i<this->blocks.size(); i++) {
+	for (long unsigned int i=0; i<this->blocks.size(); i++) {
 		if (this->blocks[i]->getPos() == this->bait->getPos()) {
 			Block *block = new Block(tail_pos, sf::Color::Red);
 			this->blocks.push_back(block);
@@ -107,7 +107,7 @@ void Snake::check_bait () {
 void Snake::check_game_over () {
 	Block *head = this->head();
 
-	for (int i=1; i<this->blocks.size(); i++)
+	for (long unsigned int i=1; i<this->blocks.size(); i++)
 		if (head->getPos() == this->blocks.at(i)->getPos()) {
 			this->is_dead = true;
 			for (Block *block: this->blocks)
@@ -120,7 +120,7 @@ void Snake::check_game_over () {
 // *** Helpers *** //
 
 bool Snake::is_empty_cell (std::pair<int, int> b) {
-	for (int i=0; i<this->blocks.size(); i++)
+	for (long unsigned int i=0; i<this->blocks.size(); i++)
 		if (b == this->blocks[i]->getPos())
 			return false;
 	return true;

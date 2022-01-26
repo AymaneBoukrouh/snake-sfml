@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "../includes/Block.h"
-#include "../includes/Config.h"
+#include "Block.h"
+#include "Config.h"
 
 
 Block::Block (std::pair<int, int> pos, sf::Color color) {
